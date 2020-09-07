@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Consultar QRcode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/consultqrcode.css">
+  <script src="/javascript/instascan.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Consultar QRcode</h1>
+  </header>
+  <main class="preview-container">
+    <video id="preview"></video>
+  </main>
+  <section>
+    <form action="listequipment" method="get">
+      <label for="room">Caso não consiga ler o QRcode, favor digitar a sala correspondente:</label>
+      <input list="rooms" name="room" required>
+      <datalist id="rooms">
+    <% docs.forEach(function(doc){ %>
+        <option><%= doc.QRCode %></option>
+    <% }) %>
+      </datalist>
+      <input type="submit" value="Selecionar">
+  </section>
+  <footer>
+    <p><%= login %>, <a href="/">Sair</a></p>
+  </footer>
+  <script src="/javascript/scanner.js"></script>
+  </form>
+</body>
+</html>

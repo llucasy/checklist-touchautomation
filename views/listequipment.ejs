@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/listequipment.css">
+  <title><%= room.QRCode %></title>
+</head>
+<body>
+  <header>
+    <h1><%= room.QRCode %></h1>
+    <p>Indique os recursos com problemas</p>
+  </header>
+  <form action="/listequipment" method="POST">
+    <input type="hidden" name="QRCode" value="<%= room.QRCode %>">
+  <main>
+   <% if(!room.recursos || room.recursos.length == 0) { %>
+    <section>Não existem recursos nesta sala</section>
+   <% } else {
+   room.recursos.forEach(function(recursos){ %>
+   <% if(recursos.qt > 0) { %> 
+  <% recursoStr = recursos.recurso.replace(/\s/g, '').replace(/[^a-z0-9 -]/gi, '')
+  categoryStr = recursos.recurso.replace(/\s/g, '').replace(/[^a-z0-9 -]/gi, '') %>
+    <label for="recursoStr" class="<%= recursoStr %>">
+      <div class="qt"><%= recursos.qt %></div>
+      <p><%= recursos.recurso %></p>
+    </label>
+   <% } %>
+   <% })
+   } %>
+
+   <input type="submit" value="Registrar">
+  </main>
+  </form>
+  <footer>
+    <p><%= login %>, <a href="/">Sair</a></p>
+  </footer> 
+  
+  <script>
+      <% let j = 0 %>
+      <% let h = 0 %>
+      let arrCategories = []
+
+      <% categories.forEach((arrCategories) => { %>
+        arrCategories.push({ category: '<%= arrCategories.category %>', subCategories: [] })
+        <% categories[j].subCategories.forEach(function(arrSubCat){ %>
+          arrCategories['<%= j %>'].subCategories.push({ subCategory: '<%= arrSubCat.subCategory %>'})
+          <% h += 1 %>
+        <% }) %>
+        <% j += 1 %>
+        <% h = 0 %>
+      <% }) %>
+      
+     // console.log(arrCategories);        
+    </script>
+
+    <script src="/javascript/listequipment.js"></script>
+
+</body>
+</html>

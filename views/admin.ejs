@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Painel Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/admin.css">
+</head>
+<body>
+  <%- include('admin/header'); %>
+  <main>
+    <p>Os 50 últimos checklists:</p>
+    <section>
+      <% checklists.forEach( checklist => { %> 
+      <article>
+        <p><b>QRCode:</b> <%= checklist.QRCode %> </p>
+        <% if(!checklist.problemas || checklist.problemas.length == 0) { %>
+          <p><b>Problemas:</b> Nenhum</p>
+         <% } else { %>
+          <p><b>Problemas:</b></p>
+        <% checklist.problemas.forEach( problema => { %>
+        <section>
+          <p><b>Recurso:</b> <%= problema.recurso %> </p>
+          <p><b>Categoria:</b> <%= problema.categoria %> </p>
+          <p><b>Obs:</b> <%= problema.obs %> </p>
+        </section>
+        <% }) }%>
+        <p><b>Usuário:</b> <%= checklist.usuario %> </p>
+        <p><b>Data:</b> <%= formatarValor(checklist.data) %> </p>
+      </article>
+      <% }) %>
+    </section>
+  </main>
+  <footer>
+    <p><a href="/">Sair</a></p>
+  </footer>
+</body>
+</html>

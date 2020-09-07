@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Extrair checklists</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/xlsx.css">
+</head>
+<body>
+  <%- include('admin/header'); %>
+  <main>
+    <p>Número de checklists: <%= totalChecklist %> </p>
+    <form action="/xlsx" method="post">
+      <label for="initialDate">Data inicial:</label>
+      <input type="date" name="initialDate" id="initialDate">
+      <label for="finalDate">Data final:</label>
+      <input type="date" name="finalDate" id="finalDate">
+      <label for="genericMode">Modo genérico:</label>
+      <input type="checkbox" name="genericMode" id="genericMode">
+      <button type="submit">Extrair checklists</button>
+      <a href="/xlsx/delete" onclick="return confirm('Tem certeza que deseja excluir todos os checklists?');">Deletar todos checklists</a>
+    </form>
+  </main>
+  <footer>
+    <p><a href="/">Sair</a></p>
+  </footer>
+</body>
+</html>

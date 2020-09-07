@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Alterar <%= resource.category %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/changeresource.css">
+</head>
+<body>
+  <%- include('admin/header'); %>
+  <main>
+    <form action="/changeresource" method="post">
+      <input type="hidden" name="id" value="<%= resource._id %>">
+      <ul>
+        <li>
+          <label for="recurso">Recurso:</label>
+          <input type="text" name="category" id="recurso" value="<%= resource.category %>" required>
+        </li>
+        <% resource.subCategories.forEach( category => { %>
+        <li>
+          <label for="<%= category.subCategory %>">Categoria:</label>
+          <input type="text" name="subCategories" id="<%= category.subCategory %>" value="<%= category.subCategory %>" required>
+          <span class="close">x</span>
+        </li>
+        <% }) %>
+      </ul>
+      <a id="addCategory">Adicionar categoria</a>
+      <button type="submit">Alterar recurso</button>
+      <a href="/changeresource/delete/<%= resource._id %>" onclick="return confirm('Tem certeza que deseja excluir? Recurso: <%= resource.category %>');">Excluir recurso</a>
+    </form>
+  </main>
+  <footer>
+    <p><a href="/">Sair</a></p>
+  </footer>
+  <script src="/javascript/changeresource.js"></script>
+</body>
+</html>

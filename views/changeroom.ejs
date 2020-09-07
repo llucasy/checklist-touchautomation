@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Alterar <%= room.QRCode %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/newroom.css">
+</head>
+<body>
+  <%- include('admin/header'); %>
+  <main>
+    <form action="/changeroom" method="post">
+      <a href="/qrcode/<%= room.QRCode %>" target="_blank">Gerar QRCode</a>
+      <input type="hidden" name="id" value="<%= room._id %>">
+      <label for="edificio">Edifício:</label>
+      <input type="text" name="edificio" id="edificio" value="<%= room.edificio %>">
+      <label for="tipo">Tipo:</label>
+      <input type="text" name="tipo" id="tipo" value="<%= room.tipo %>">
+      <label for="numero">Número:</label>
+      <input type="text" name="numero" id="numero" value="<%= room.numero %>">
+      <label for="QRCode">QRCode:</label>
+      <input type="text" name="QRCode" id="QRCode" value="<%= room.QRCode %>" required>
+      <% room.recursos.forEach( category => { %>
+      <input type="hidden" name="recurso" value="<%= category.recurso %>">
+      <label for="<%= category.recurso %>"><%= category.recurso %>:</label>
+      <input type="number" name="recurso" id="<%= category.recurso %>" value="<%= category.qt %>" required>
+      <% }) %>
+      <button type="submit">Alterar sala</button>
+      <a href="/changeroom/delete/<%= room._id %>" onclick="return confirm('Tem certeza que deseja excluir? Sala: <%= room.QRCode %>');">Excluir sala</a>
+    </form>
+  </main>
+  <footer>
+    <p><a href="/">Sair</a></p>
+  </footer>
+  <script src="/javascript/newroom.js"></script>
+</body>
+</html>

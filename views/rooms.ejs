@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Salas e recursos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/rooms.css">
+</head>
+<body>
+  <%- include('admin/header'); %>
+  <main>
+    <p>Total de salas: <%= countRooms %></p>
+    <a href="/newroom">Cadastrar nova sala</a>
+    <a href="/resources">Gerenciar Recursos</a>
+    <form action="/rooms" method="GET">
+      <label for="search">Pesquise pelo QRCode:</label>
+      <input type="search" name="search" id="search">
+      <button type="submit">Pesquisar</button>
+    </form>
+    <section>
+      <% rooms.forEach( room => { %> 
+      <article onclick="window.location.href='/changeroom/<%= room._id %>'">
+        <p><b>Edifício:</b> <%= room.edificio %> </p>
+        <p><b>Tipo:</b> <%= room.tipo %> </p>
+        <p><b>Número:</b> <%= room.numero %> </p>
+        <p><b>QRCode:</b> <%= room.QRCode %> </p>
+        <% if(!room.recursos || room.recursos.length == 0) { %>
+          <p><b>Recursos:</b> Nenhum</p>
+         <% } else { %>
+        <% room.recursos.forEach( recurso => { %>
+        <section>
+          <p><b>Recurso:</b> <%= recurso.recurso %> </p>
+          <p><b>Quantidade:</b> <%= recurso.qt %> </p>
+        </section>
+        <% }) }%>
+      </article>
+      <% }) %>
+    </section>
+  </main>
+  <footer>
+    <p><a href="/">Sair</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Nova sala</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/newroom.css">
+</head>
+<body>
+  <%- include('admin/header'); %>
+  <main>
+    <form action="/newroom" method="post">
+      <label for="edificio">Edifício:</label>
+      <input type="text" name="edificio" id="edificio">
+      <label for="tipo">Tipo:</label>
+      <input type="text" name="tipo" id="tipo">
+      <label for="numero">Número:</label>
+      <input type="number" name="numero" id="numero">
+      <label for="QRCode">QRCode:</label>
+      <input type="text" name="QRCode" id="QRCode" required>
+      <% categories.forEach( category => { %>
+      <input type="hidden" name="recurso" value="<%= category.category %>">
+      <label for="<%= category.category %>"><%= category.category %>:</label>
+      <input type="number" name="recurso" id="<%= category.category %>" required>
+      <% }) %>
+      <button type="submit">Cadastrar sala</button>
+    </form>
+  </main>
+  <footer>
+    <p><a href="/">Sair</a></p>
+  </footer>
+  <script src="/javascript/newroom.js"></script>
+</body>
+</html>

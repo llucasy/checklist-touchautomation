@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font: 18px "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr;
+  height: 80vh;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  margin: 10px;
+}
+
+header {
+  font-size: 14px;
+  margin: 10px;
+}
+
+form {
+  font-size: 20px;
+  background-color: #2ecc71;
+  border: 2px solid black;
+  height: 250px;
+  width: 380px;
+  display: grid;
+  align-content: center;
+  grid-gap: 10px;
+  margin: 0px auto;
+  padding: 10px;
+}
+
+@media (min-width: 770px) {
+  form {
+    grid-template-columns: repeat(2, 1fr);
+    height: 200px;
+    width: 400px;
+  }
+  input[type="submit"] {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  header {
+    font-size: 18px;
+  }
+}
+
+input {
+  text-align: center;
+  height: 35px;
+}
+
+input[type="submit"] {
+  border-radius: 10px;
+}
+
+p {
+  color: red;
+}

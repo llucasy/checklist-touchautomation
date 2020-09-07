@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Usuários</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/users.css">
+</head>
+<body>
+  <%- include('admin/header'); %>
+  <main>
+    <p>Clique nos usuários que deseja remover e confirme</p>
+    <button id="myBtn">Cadastrar novo usuário</button>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Digite os dados abaixo:</p>
+        <form action="/users" method="post">
+          <label for="login">Usuário:</label>
+          <input type="text" id="login" name="login" required>
+          <label for="password">Senha:</label>
+          <input type="password" id="password" name="password" required>
+          <input type="submit" value="Cadastrar">
+        </form>
+      </div>
+    </div>
+    <section>
+      <% if(!docs || docs.length === 0) { %>
+      <a>Não há usuários cadastrados</a>
+      <% } else { docs.forEach((users) => { %> 
+      <a href="users/delete/<%= users._id %>" onclick="return confirm('Tem certeza que deseja excluir? Usuário: <%= users.login %>');"><b>Usuário:</b> <%= users.login %></a>
+      <% }) } %>
+    </section>
+  </main>
+  <footer>
+    <p><a href="/">Sair</a></p>
+  </footer>
+  <script src="/javascript/users.js"></script>
+</body>
+</html>

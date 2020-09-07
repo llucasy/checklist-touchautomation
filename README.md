@@ -1,2 +1,4 @@
-# checklist-touchautomation
-Created with CodeSandbox
+# Checklist Touch Automation
+
+Project carried out for Touch Automation
+
