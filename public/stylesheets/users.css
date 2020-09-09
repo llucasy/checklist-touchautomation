@@ -4,8 +4,16 @@
   margin: 0;
 }
 
+@font-face {
+	font-family: 'Magistral';
+	src: url('/fonts/MGBOLD.TTF') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
-  font: 18px "Comic Sans MS", cursive, sans-serif;
+  font-size: 18px;
+	font-family: "Magistral";
   text-align: center;
   display: grid;
   grid-template-columns: 1fr;
@@ -18,12 +26,16 @@ header {
   margin: 10px;
   margin-bottom: 0;
   border: 2px solid black;
-  background-color: #2ecc71;
+  background-color: #005ae0;
 }
 
 header a {
   color: black;
   text-decoration: none;
+}
+
+h1 a {
+	color: white;
 }
 
 nav {
@@ -49,7 +61,7 @@ button {
 nav a:hover,
 section a:hover,
 button:hover {
-  background-color: #1abc9c;
+  background-color: #00a4f7;
 }
 
 main {
@@ -84,7 +96,11 @@ footer {
   margin: 10px;
   margin-top: 0;
   border: 2px solid black;
-  background-color: #2ecc71;
+  background-color: #005ae0;
+}
+
+footer a {
+	color: white;
 }
 
 /* The Modal (background) */

@@ -1,5 +1,6 @@
 var mongoClient = require("mongodb").MongoClient;
 var ObjectId = require("mongodb").ObjectID;
+require('dotenv/config');
 
 mongoClient
   .connect(

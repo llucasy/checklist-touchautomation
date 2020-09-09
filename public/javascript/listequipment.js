@@ -53,7 +53,7 @@ labels.forEach((label) => {
     } else if (
       clickedElement.querySelector('input[type="checkbox"]').checked === true
     ) {
-      clickedElement.style.background = "#2ecc71";
+      clickedElement.style.background = "#005ae0";
       clickedElement.querySelectorAll("label").forEach((label) => {
         label.remove();
       });
