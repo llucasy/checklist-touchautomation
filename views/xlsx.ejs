@@ -10,13 +10,13 @@
 <body>
   <%- include('admin/header'); %>
   <main>
-    <p>Número de checklists: <%= totalChecklist %> </p>
+    <p>Numero de checklists: <%= totalChecklist %> </p>
     <form action="/xlsx" method="post">
       <label for="initialDate">Data inicial:</label>
       <input type="date" name="initialDate" id="initialDate">
       <label for="finalDate">Data final:</label>
       <input type="date" name="finalDate" id="finalDate">
-      <label for="genericMode">Modo genérico:</label>
+      <label for="genericMode">Modo generico:</label>
       <input type="checkbox" name="genericMode" id="genericMode">
       <button type="submit">Extrair checklists</button>
       <a href="/xlsx/delete" onclick="return confirm('Tem certeza que deseja excluir todos os checklists?');">Deletar todos checklists</a>

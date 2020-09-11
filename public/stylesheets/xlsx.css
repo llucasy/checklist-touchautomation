@@ -11,6 +11,10 @@
 	font-style: normal;
 }
 
+input, label, button {
+	font-family: "Magistral";
+}
+
 body {
   font-size: 18px;
 	font-family: "Magistral";
@@ -93,7 +97,7 @@ form a {
   margin: 5px;
   margin-bottom: 0;
   text-decoration: none;
-  font: 16px "Comic Sans MS", cursive, sans-serif;
+  font: 16px "Magistral";
   height: 30px;
   cursor: pointer;
   line-height: 30px;

@@ -20,6 +20,10 @@ body {
   position: relative;
 }
 
+input, label, button {
+	font-family: "Magistral";
+}
+
 header {
   position: sticky;
   top: 2px;
