@@ -6,7 +6,7 @@
 
 body {
   font-size: 18px;
-	font-family: Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
   text-align: center;
   display: grid;
   grid-template-columns: 1fr;

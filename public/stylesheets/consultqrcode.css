@@ -4,13 +4,9 @@
   margin: 0;
 }
 
-@font-face {
-     font-family: Magistral;
-     src: url('/fonts/MGBOLD.TTF');
-}
-
 body {
-  font: 18px Magistral;
+  font-size: 18px;
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
   text-align: center;
   display: grid;
   grid-template-columns: 1fr;
