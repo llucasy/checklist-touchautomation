@@ -34,6 +34,8 @@ router.get("/", function (req, res, next) {
 router.post("/", function (req, res, next) {
   let sess = req.session;
 
+  let usuarioSess = sess.login;
+
   if (!sess.login) {
     res.redirect("/");
   }
@@ -57,9 +59,13 @@ router.post("/", function (req, res, next) {
   let item = {
     QRCode: req.body.QRCode,
     problemas,
-    usuario: sess.login,
+    usuario: usuarioSess,
     data: new Date()
   };
+
+  if (!sess.login) {
+    res.redirect("/");
+  }
 
   global.db.insertChecklist(item, (err, result) => {
     if (err) {
