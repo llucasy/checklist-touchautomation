@@ -8,7 +8,7 @@ mongoClient
       process.env.DB_LOGIN +
       ":" +
       process.env.DB_PASSWORD +
-      "@cluster0.9u3xt.gcp.mongodb.net/checklist?retryWrites=true&w=majority",
+      "@cluster0.deniqpn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
     { useUnifiedTopology: true }
   )
   .then((conn) => (global.conn = conn.db("checklist")))
