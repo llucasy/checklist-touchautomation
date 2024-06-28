@@ -1,6 +1,7 @@
 {
-  "name": "touchautomation",
-  "version": "0.0.0",
+  "name": "checklist-touchautomation",
+  "version": "1.0.0",
+  "main": "./bin/www",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
